@@ -1,16 +1,21 @@
 [project]
 name = "support-ticket-classifier"
 version = "0.1.0"
-description = "OpenEnv RL-style environment for support ticket classification"
-authors = [{name = "Akshat"}]
+description = "OpenEnv support ticket classifier"
+authors = [{ name = "Akshat" }]
 dependencies = [
     "flask",
     "flask-cors",
     "requests",
     "pydantic",
     "pyyaml",
-    "openai"
+    "openai",
+    "openenv-core>=0.2.0"
 ]
 
-[tool.openenv]
-entry_point = "backend.app:app"
+[project.scripts]
+server = "server.app:app"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
